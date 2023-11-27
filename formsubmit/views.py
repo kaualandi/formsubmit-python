@@ -15,11 +15,11 @@ def send_email(request, email_address):
     html = create_html_template(data, user_agent)
     
     configuration = sib_api_v3_sdk.Configuration()
-    configuration.api_key['api-key'] = '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'
+    configuration.api_key['api-key'] = '-----'
 
     api_instance = sib_api_v3_sdk.TransactionalEmailsApi(sib_api_v3_sdk.ApiClient(configuration))
     subject = "Você recebeu uma nova mensagem em " + data['name'] + "!"
-    sender = {"name":"Noclaf Forms","email":"eu@kaualf.com"}
+    sender = {"name":"Noclaf Forms","email":"forms@noclaftech.com"}
     email = [{"email": email_address}]
     send_smtp_email = sib_api_v3_sdk.SendSmtpEmail(to=email, html_content=html, sender=sender, subject=subject)
 
